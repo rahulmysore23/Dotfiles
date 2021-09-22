@@ -3,8 +3,8 @@
 Current Setup includes - 
 
 1. Window manager - i3 (Regolith) 
-2. Terminal - Simple terminal (st)
-3. Editor - Neovim (0.5)
+2. Terminal - Simple terminal (st) - gruvbox theme
+3. Editor - Neovim (0.5) - gruvbox theme
 4. Shell - Zsh
 5. Fzf 
 6. lazygit
