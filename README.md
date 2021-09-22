@@ -8,3 +8,7 @@ Current Setup includes -
 4. Shell - Zsh
 5. Fzf 
 6. lazygit
+7. lsd for ls
+8. Ranger
+9. tmux + oh-my-tmux
+10. Rofi (Regolith)
