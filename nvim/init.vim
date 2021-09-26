@@ -27,12 +27,14 @@ Plug 'sebdah/vim-delve'
 Plug 'majutsushi/tagbar'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
+Plug 'arcticicestudio/nord-vim'
 
 "Lsp setup
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe' " Auto complete
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 Plug 'glepnir/lspsaga.nvim' " Additional bindings
+" Plug 'ray-x/lsp_signature.nvim'
 
 call plug#end()
 
@@ -58,15 +60,18 @@ nnoremap <silent><leader>ca <cmd>lua require('lspsaga.codeaction').code_action()
 vnoremap <silent><leader>ca :<C-U>lua require('lspsaga.codeaction').range_code_action()<CR>
 
 " rename
-nnoremap <silent><leader>r <cmd>lua require('lspsaga.rename').rename()<CR>
+nnoremap <silent><leader>rn <cmd>lua require('lspsaga.rename').rename()<CR>
 
 " preview definition
 nnoremap <silent> Gd <cmd>lua require'lspsaga.provider'.preview_definition()<CR>
 
-" lspconfig
+
+" lsp config golang
 lua << EOF
-    require'lspconfig'.gopls.setup{}
+ require'lspconfig'.gopls.setup{}
 EOF
+
+
 
 " LSP config (the mappings used in the default file don't quite work right)
 nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
@@ -168,4 +173,3 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 EOF
-
