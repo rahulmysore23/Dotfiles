@@ -1,3 +1,5 @@
+let g:gruvbox_contrast_dark = 'hard'
+
 colorscheme gruvbox
 set background=dark
 filetype on
@@ -15,5 +17,9 @@ set relativenumber
 set termguicolors
 set encoding=UTF-8
 set clipboard+=unnamedplus
+
+" Enable persistent undo so that undo history persists across vim sessions
+set undofile
+set undodir=~/.vim/undo
 
 let mapleader = " "
