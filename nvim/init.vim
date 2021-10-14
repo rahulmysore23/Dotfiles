@@ -15,7 +15,8 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'ryanoasis/vim-devicons'
 
 Plug 'romgrk/barbar.nvim'
-Plug 'itchyny/lightline.vim'
+Plug 'hoob3rt/lualine.nvim'
+
 Plug 'unblevable/quick-scope'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -39,13 +40,13 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'glepnir/lspsaga.nvim' 
 Plug 'kabouzeid/nvim-lspinstall'
 Plug 'nvim-treesitter/playground'
+Plug 'folke/trouble.nvim'
 
 call plug#end()
 
 
 source $HOME/.config/nvim/basic.vim
 source $HOME/.config/nvim/nerdtree.vim
-source $HOME/.config/nvim/lightline.vim
 source $HOME/.config/nvim/vim-go.vim
 source $HOME/.config/nvim/telescope.vim
 source $HOME/.config/nvim/barbar.vim
@@ -53,6 +54,52 @@ source $HOME/.config/nvim/fzf.vim
 source $HOME/.config/nvim/ultisnips.vim
 source $HOME/.config/nvim/mundo.vim
 source $HOME/.config/nvim/vim-wiki.vim
+
+
+" Trouble 
+lua << EOF
+  require("trouble").setup {
+  }
+EOF
+
+nnoremap <leader>xx <cmd>TroubleToggle<cr>
+nnoremap <leader>xw <cmd>TroubleToggle lsp_workspace_diagnostics<cr>
+nnoremap <leader>xd <cmd>TroubleToggle lsp_document_diagnostics<cr>
+nnoremap <leader>xq <cmd>TroubleToggle quickfix<cr>
+nnoremap <leader>xl <cmd>TroubleToggle loclist<cr>
+nnoremap gR <cmd>TroubleToggle lsp_references<cr>
+
+
+" Lualine
+lua << EOF 
+    require'lualine'.setup {
+      options = {
+	icons_enabled = true,
+	theme = 'gruvbox',
+	component_separators = {'', ''},
+	section_separators = {'', ''},
+	disabled_filetypes = {}
+      },
+      sections = {
+	lualine_a = {'mode'},
+	lualine_b = {'branch'},
+	lualine_c = {'filename'},
+	lualine_x = {'encoding', 'fileformat', 'filetype'},
+	lualine_y = {'progress'},
+	lualine_z = {'location'}
+      },
+      inactive_sections = {
+	lualine_a = {},
+	lualine_b = {},
+	lualine_c = {'filename'},
+	lualine_x = {'location'},
+	lualine_y = {},
+	lualine_z = {}
+      },
+      tabline = {},
+      extensions = {}
+    }
+EOF 
 
 
 " lspsaga
