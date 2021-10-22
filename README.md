@@ -12,3 +12,5 @@ Current Setup includes -
 8. Ranger
 9. tmux + oh-my-tmux
 10. Rofi (Regolith)
+
+## **Latest branch - lsp**
